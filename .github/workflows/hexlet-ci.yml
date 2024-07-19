@@ -22,9 +22,6 @@ jobs:
       - name: Build app
         run: make build
 
-      - name: Start app
-        run: make start
-
       - name: Test app
         run: make test
 
