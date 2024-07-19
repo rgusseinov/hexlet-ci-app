@@ -1,0 +1,32 @@
+name: Workflow for hexlet-ci-app
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-hexlet-ci-app-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Make
+        run: sudo apt-get install -y make
+
+      - name: Setup app
+        run: make setup
+
+      - name: Build app
+        run: make build
+
+      - name: Start app
+        run: make start
+
+      - name: Test app
+        run: make test
+
+      - name: Lint app
+        run: make lint
